@@ -1,2 +1,2 @@
 # -CS690-Project
-Final Project For CS690 SoftWare Engineering 
+This final project For CS690 SoftWare Engineering was completed by Ayana Gray
