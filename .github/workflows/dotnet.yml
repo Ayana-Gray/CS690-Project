@@ -12,7 +12,10 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: FinalProject 
+
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
