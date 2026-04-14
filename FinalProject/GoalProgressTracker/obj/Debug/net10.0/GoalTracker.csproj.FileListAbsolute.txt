@@ -1,0 +1,15 @@
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/bin/Debug/net10.0/GoalTracker
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/bin/Debug/net10.0/GoalTracker.deps.json
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/bin/Debug/net10.0/GoalTracker.runtimeconfig.json
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/bin/Debug/net10.0/GoalTracker.dll
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/bin/Debug/net10.0/GoalTracker.pdb
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/obj/Debug/net10.0/GoalTracker.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/obj/Debug/net10.0/GoalTracker.AssemblyInfoInputs.cache
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/obj/Debug/net10.0/GoalTracker.AssemblyInfo.cs
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/obj/Debug/net10.0/GoalTracker.csproj.CoreCompileInputs.cache
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/obj/Debug/net10.0/GoalTracker.sourcelink.json
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/obj/Debug/net10.0/GoalTracker.dll
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/obj/Debug/net10.0/refint/GoalTracker.dll
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/obj/Debug/net10.0/GoalTracker.pdb
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/obj/Debug/net10.0/GoalTracker.genruntimeconfig.cache
+/workspaces/CS690-Project/FinalProject/GoalProgressTracker/obj/Debug/net10.0/ref/GoalTracker.dll
