@@ -34,5 +34,18 @@ public class DailyTask
             _ => "Unknown day."
         };
     }
+     public static string NovelCreationDailyTask(int currentProgress)
+    {
+        return currentProgress switch
+        {
+            0 => "Daily task: Phase 1: Prewriting ",
+            1 => "Daily task: Phase 2: 1st Draft ",
+            2 => "Daily task: Phase 3: Revision / Structural Editing ",
+            3 => "Daily task: Phase 4: Editing / Polishing",
+            4 => "Daily task: Phase 5: Final Submission / Proofreading",
+            5 => "Congratulations! You've completed all phases of your novel creation.",
+            _ => "Unknown phase."
+        };
+    }
     
 }

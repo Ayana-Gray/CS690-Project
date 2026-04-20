@@ -5,7 +5,7 @@ using System;
 public static class LanguageLearningService
 {
     private static readonly int[] MilestoneThresholds = { 25, 50, 75, 100 };
-    public static Goal LanguageLearningGoal { get; } = new Goal("Language Learning", DateTime.Today.AddYears(1), 100);
+    public static Goal LanguageLearningGoal { get; } = new Goal("Language Learning", 100,  DateTime.Today.AddYears(1));
 
     private static void EnsureLanguageLearningMilestonesInitialized()
     {

@@ -2,8 +2,7 @@ namespace GoalProgressTracker;
 
 using System.IO;
 
-
-internal class DataManager
+public class DataManager
 {
 
     public static void SaveData(string filePath, string data)

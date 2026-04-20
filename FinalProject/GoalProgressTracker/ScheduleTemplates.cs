@@ -19,22 +19,22 @@ public class ScheduleTemplates
 
     public static readonly string[] HalfMarathon16WeekTrainingSchedule =
     {
-        "WEEK 1:  Mon 3.0 mi easy run, Tue 2.0 mi speed run, Thu 3.0 mi easy run, Sat 4.0 mi long run",
-        "WEEK 2:  Mon 3.0 mi easy run, Tue 2.0 mi speed run, Thu 3.0 mi easy run, Sat 4.0 mi long run",
-        "WEEK 3:  Mon 3.5 mi easy run, Tue 2.0 mi speed run, Thu 3.5 mi easy run, Sat 5.0 mi long run",
-        "WEEK 4:  Mon 3.5 mi easy run, Tue 2.0 mi speed run, Thu 3.5 mi easy run, Sat 5.0 mi long run",
-        "WEEK 5:  Mon 4.0 mi easy run, Tue 2.0 mi speed run, Thu 4.0 mi easy run, Sat 6.0 mi long run",
-        "WEEK 6:  Mon 4.0 mi easy run, Tue 2.0 mi speed run, Thu 4.0 mi easy run, Sat 5K race",
-        "WEEK 7:  Mon 4.5 mi easy run, Tue 3.0 mi speed run, Thu 5.0 mi easy run, Sat 7.0 mi long run",
-        "WEEK 8:  Mon 4.5 mi easy run, Tue 3.0 mi speed run, Thu 5.0 mi easy run, Sat 8.0 mi long run",
-        "WEEK 9:  Mon 5.0 mi easy run, Tue 3.0 mi speed run, Thu 5.0 mi easy run, Sat 10K race",
-        "WEEK 10: Mon 5.0 mi easy run, Tue 3.0 mi speed run, Thu 5.0 mi easy run, Sat 9.0 mi long run",
-        "WEEK 11: Mon 5.0 mi easy run, Tue 3.0 mi speed run, Thu 5.0 mi easy run, Sat 9.0 mi long run",
-        "WEEK 12: Mon 5.0 mi easy run, Tue 3.0 mi speed run, Thu 5.0 mi easy run, Sat 10.0 mi long run",
-        "WEEK 13: Mon 5.0 mi easy run, Tue 3.0 mi speed run, Thu 5.0 mi easy run, Sat 10.0 mi long run",
-        "WEEK 14: Mon 5.0 mi easy run, Tue 3.0 mi speed run, Thu 5.0 mi easy run, Sat 11.0 mi long run",
-        "WEEK 15: Mon 4.0 mi easy run, Tue 3.0 mi speed run, Thu 3.0 mi easy run, Sat 10.0 mi long run",
-        "WEEK 16: Mon 4.0 mi easy run, Tue 3.0 mi speed run, Thu 2.0 mi easy run, Sat HALF MARATHON RACE!!!"
+        "WEEK 1:  Mon 3 Mile Easy Run, Tue 2 Mile Speed Run, Thu 3 Mile Easy Run, Sat 4 Mile Long Run",
+        "WEEK 2:  Mon 3 Mile Easy Run, Tue 2 Mile Speed Run, Thu 3 Mile Easy Run, Sat 4 Mile Long Run",
+        "WEEK 3:  Mon 4 Mile Easy Run, Tue 2 Mile Speed Run, Thu 4 Mile Easy Run, Sat 5 Mile Long Run",
+        "WEEK 4:  Mon 4 Mile Easy Run, Tue 2 Mile Speed Run, Thu 4 Mile Easy Run, Sat 5 Mile Long Run",
+        "WEEK 5:  Mon 4 Mile Easy Run, Tue 2 Mile Speed Run, Thu 4 Mile Easy Run, Sat 6 Mile Long Run",
+        "WEEK 6:  Mon 4 Mile Easy Run, Tue 2 Mile Speed Run, Thu 4 Mile Easy Run, Sat 5K Race",
+        "WEEK 7:  Mon 5 Mile Easy Run, Tue 3 Mile Speed Run, Thu 5 Mile Easy Run, Sat 7 Mile Long Run",
+        "WEEK 8:  Mon 5 Mile Easy Run, Tue 3 Mile Speed Run, Thu 5 Mile Easy Run, Sat 8 Mile Long Run",
+        "WEEK 9:  Mon 5 Mile Easy Run, Tue 3 Mile Speed Run, Thu 5 Mile Easy Run, Sat 10K Race",
+        "WEEK 10: Mon 5 Mile Easy Run, Tue 3 Mile Speed Run, Thu 5 Mile Easy Run, Sat 9 Mile Long Run",
+        "WEEK 11: Mon 5 Mile Easy Run, Tue 3 Mile Speed Run, Thu 5 Mile Easy Run, Sat 9 Mile Long Run",
+        "WEEK 12: Mon 5 Mile Easy Run, Tue 3 Mile Speed Run, Thu 5 Mile Easy Run, Sat 10 Mile Long Run",
+        "WEEK 13: Mon 5 Mile Easy Run, Tue 3 Mile Speed Run, Thu 5 Mile Easy Run, Sat 10 Mile Long Run",
+        "WEEK 14: Mon 5 Mile Easy Run, Tue 3 Mile Speed Run, Thu 5 Mile Easy Run, Sat 11 Mile Long Run",
+        "WEEK 15: Mon 4 Mile Easy Run, Tue 3 Mile Speed Run, Thu 3 Mile Easy Run, Sat 10 Mile Long Run",
+        "WEEK 16: Mon 4 Mile Easy Run, Tue 3 Mile Speed Run, Thu 2 Mile Easy Run, Sat HALF MARATHON RACE!!!"
     };
      public static readonly string[] NovelCreationPhaseNames =
     {

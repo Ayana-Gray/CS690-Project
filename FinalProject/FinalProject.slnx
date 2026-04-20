@@ -1,2 +1,4 @@
 <Solution>
+  <Project Path="GoalProgressTracker.Test/GoalProgressTracker.Test.csproj" />
+  <Project Path="GoalProgressTracker/GoalProgressTracker.csproj" />
 </Solution>
