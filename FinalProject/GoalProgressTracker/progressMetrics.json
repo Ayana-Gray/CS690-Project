@@ -1,13 +1,15 @@
 {
-  "Vocabulary Words Learned": "1",
-  "Reading Lessons Completed": "2",
-  "Verbal Exercises Completed": "4",
-  "Listening Exercises Completed": "4",
-  "Novel Phases Completed": "1",
+  "Vocabulary Words Learned": "50",
+  "Reading Lessons Completed": "25",
+  "Verbal Exercises Completed": "2",
+  "Listening Exercises Completed": "1",
+  "Novel Phases Completed": "0",
   "Novel Word Count Completed": "0",
-  "Half Marathon Runs Completed": "2",
-  "Half Marathon Miles Completed": "6",
-  "Half Marathon Weekly Miles": "{\u00221\u0022:6}",
-  "Half Marathon Weekly Runs": "{\u00221\u0022:2}",
-  "Marathon Race Date": "2026-08-01"
+  "Half Marathon Runs Completed": "4",
+  "Half Marathon Miles Completed": "12",
+  "Half Marathon Weekly Miles": "{\u00221\u0022:8,\u00222\u0022:4,\u00223\u0022:0}",
+  "Half Marathon Weekly Runs": "{\u00221\u0022:3,\u00222\u0022:1,\u00223\u0022:0}",
+  "Marathon Race Date": "",
+  "Half Marathon Race Date": "2026-08-01",
+  "Half Marathon Goal Current Progress": "2"
 }

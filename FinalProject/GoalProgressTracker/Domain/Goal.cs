@@ -7,13 +7,13 @@ public class Goal
 {
     
     public string Name { get; set; }
-    public DateTime TargetDate { get; set; }
+    public DateTime? TargetDate { get; set; }
     public int TargetValue { get; set; }
     public int CurrentProgress { get; set; }
     public bool IsCompleted => CurrentProgress >= TargetValue;
     public List<Milestone> Milestones{get; set; }
 
-    public Goal(string name, DateTime targetDate, int targetValue)
+    public Goal(string name, int targetValue,  DateTime? targetDate = null)
     {
         this.Name = name;
         this.TargetDate = targetDate;

@@ -66,27 +66,6 @@ internal static class Menus
         "[5] Back to Main Menu",
         "[6] Exit Program"
     };
-
-    public static readonly string[] HalfMarathonWeeklyTargetMiles =
-    {
-        "12 Miles",
-        "12 Miles",
-        "14 Miles",
-        "14 Miles",
-        "16 Miles",
-        "13.1 Miles",
-        "19.5 Miles",
-        "20.5 Miles",
-        "19.2 Miles",
-        "22 Miles",
-        "22 Miles",
-        "23 Miles",
-        "23 Miles",
-        "24 Miles",
-        "20 Miles",
-        "22.1 Miles"
-    };
-
     public static readonly string[] NovelCreationProgressMenu =
     {
         "[1] Words Written",

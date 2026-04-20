@@ -1,89 +1,59 @@
-namespace GoalProgressTracker;
+using System.Net.Mime;
 
-using System;
-using System.IO;
-
-public class SetAReminder
+namespace GoalProgressTracker
 {
-    public string Name { get; }
-    public string Content { get; set; }
-    public SetAReminder(string name, string content)
+    public class SetAReminder 
     {
-        this.Name = name;
-        this.Content = content;
-    }
+        public string Name { get; }
+        public string Content { get; set; }
+        public string FilePath { get; } 
 
-    public static void SaveReminder(string filePath)
-    {
-        Console.WriteLine("Enter your reminder. Submit an empty line to finish.");
-
-        var lines = new List<string>();
-
-        while (true)
+        public SetAReminder(string name, string content, string filePath) 
         {
-            var line = Console.ReadLine() ?? string.Empty;
-
-            if (string.IsNullOrWhiteSpace(line))
-            {
-                break;
+            this.Name = name;
+            this.Content = content;
+            this.FilePath = filePath;
+            
+            if (File.Exists(FilePath)) {
+                this.Content = File.ReadAllText(FilePath);
             }
-
-            lines.Add(line);
         }
+        public static SetAReminder LanguageLearning = new SetAReminder("Language Learning", "", "LanguageLearningReminders.txt");
+        public static SetAReminder HalfMarathon = new SetAReminder("Half Marathon Training", "", "HalfMarathonTrainingReminders.txt");
+        public static SetAReminder NovelCreation = new SetAReminder("Novel Creation", "", "NovelCreationReminders.txt");
 
-        if (lines.Count == 0)
+        public void SaveFromConsole()
         {
-            ConsoleUI.ConsolePause("No content entered. Reminder not saved.");
-            return;
-        }
-
-        string content = string.Join(Environment.NewLine, lines);
-
-        try
-        {
-            // Overwrites the file each time
-            File.WriteAllText(filePath, "Current Reminder(s): \n" + content + "\n" + Environment.NewLine);
+            Console.WriteLine($"Enter reminders for {Name} (Press Enter on an empty line to save):");
+            
+            List<string> lines = new List<string>();
+            string line;
+            
+            while (!string.IsNullOrWhiteSpace(line = Console.ReadLine() ?? ""))
+            {
+                lines.Add(line);
+            }
+            if (lines.Count == 0) 
+            { 
+                ConsoleUI.ConsolePause("No content entered. Reminder not saved."); 
+                return;
+            }
+            string entry = string.Join(Environment.NewLine, lines);
+            int Width = 50; 
+            string finalEntry = ConsoleUI.WrapText(entry, Width);
+            string content = finalEntry + Environment.NewLine;
+            this.Content = content;
+            try
+            {   
+            File.WriteAllText(this.FilePath, this.Content);
 
             ConsoleUI.ConsolePause("Reminder saved successfully (previous content replaced).");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error saving reminder: {ex.Message}");
-            ConsoleUI.ConsolePause("Press any key to continue...");
-        }
-    }
-
-    public static void ViewReminder(string filePath)
-    {
-        if (File.Exists(filePath))
-        {
-            try
-            {
-                string[] entries = File.ReadAllLines(filePath);
-
-                if (entries.Length == 0)
-                {
-                    Console.WriteLine("The file is empty.");
-                }
-                else
-                {
-                    
-                    Console.WriteLine();
-                    foreach (var entry in entries)
-                    {
-                        Console.WriteLine(entry);
-                    }
-                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error reading file: {ex.Message}");
+            Console.WriteLine($"Error saving reminder: {ex.Message}");
+            ConsoleUI.ConsolePause("Press any key to continue...");
             }
         }
-        else
-        {
-            Console.WriteLine($"File '{filePath}' not found.");
-        }
     }
-
-}
+}       

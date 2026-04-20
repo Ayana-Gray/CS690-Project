@@ -4,38 +4,48 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
+
 public class HalfMarathonService
 {
-    internal static int? GetCurrentTrainingWeek()
-    {
-        if (!ConsoleUI.MarathonDate.HasValue)
-        {
-            return null;
-        }
+    public static Goal HalfMarathonGoal { get; set; } = new Goal("Half Marathon", 16);
 
-        return CalculateTrainingWeek(ConsoleUI.MarathonDate.Value, DateTime.Today);
+internal static int? GetCurrentTrainingWeek()
+{
+    // Use the TargetDate from your Goal object
+    if (!HalfMarathonGoal.TargetDate.HasValue)
+    {
+        return null;
     }
 
-    private static int? CalculateTrainingWeek(DateTime raceDate, DateTime today)
+    return CalculateTrainingWeek(HalfMarathonGoal.TargetDate.Value, DateTime.Today);
+}
+
+private static int? CalculateTrainingWeek(DateTime raceDate, DateTime today)
+{
+    // Ensure we are only looking at the Date component to avoid time-of-day math errors
+    DateTime raceDay = raceDate.Date;
+    DateTime currentDay = today.Date;
+
+    if (currentDay > raceDay) return null;
+
+    int daysUntilRace = (raceDay - currentDay).Days;
+    
+    // Logic: 112 days out (16 weeks) should be Week 1.
+    // 0 days out (race day) should be Week 16.
+    //int computedWeek = 16 - (daysUntilRace / 7);
+    int computedWeek = 17 - ((daysUntilRace / 7) + 1);
+
+    // Update the progress property on your static object
+    HalfMarathonGoal.CurrentProgress = computedWeek;
+
+    // Return null if we are outside the 16-week window (e.g., started 20 weeks early)
+    if (computedWeek < 1 || computedWeek > 16)
     {
-        var raceDay = raceDate.Date;
-        var currentDay = today.Date;
-
-        if (currentDay > raceDay)
-        {
-            return null;
-        }
-
-        var daysUntilRace = (raceDay - currentDay).Days;
-        var computedWeek = 16 - (daysUntilRace / 7);
-
-        if (computedWeek < 1 || computedWeek > 16)
-        {
-            return null;
-        }
-
-        return computedWeek;
+        return null;
     }
+
+    return HalfMarathonGoal.CurrentProgress;
+}
     public static readonly string[] HalfMarathonWeeklyTargetMiles =
     {
         "12 Miles",
@@ -55,5 +65,6 @@ public class HalfMarathonService
         "20 Miles",
         "22 Miles"
     };
+    
 
 }
