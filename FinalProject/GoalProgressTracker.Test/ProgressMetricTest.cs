@@ -7,7 +7,7 @@ public class ProgressMetricTests
     [Fact]
     public void UpdateProgressTest()
     {
-        var metric = new ProgressMetric("Distance","km", 5);
+        var metric = new ProgressMetric("Distance","mi", 5);
         metric.UpdateProgress(3);
         Assert.Equal(3, metric.CurrentProgress);
         Assert.False(metric.IsCompleted);
@@ -30,7 +30,7 @@ public class ProgressMetricTests
     [Fact]
     public void CalculateProgressTest()
     {
-        
+        // 37.5 = (3/8)*100
         var result = ProgressMetric.CalculateProgress(3, 8);
         Assert.Equal(37.5, result);
         Assert.Equal(0.0, ProgressMetric.CalculateProgress(0, 0));
