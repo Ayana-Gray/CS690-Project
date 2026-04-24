@@ -4,13 +4,14 @@ class Program
 { //static bool keepRunning = true;
     static void Main(string[] args)
     {
-        ConsoleUI.InitializeMetrics();
+        DataManager.InitializeMetrics();
 
-         while (ConsoleUI.keepRunning)
+        while (ConsoleUI.keepRunning)
         {
+            
             ConsoleUI.MainMenu();
         }
         
-        ConsoleUI.WriteSuccess("Goodbye! The program has exited.");
+        Console.WriteLine("Goodbye! The program has exited.");
     }
 }

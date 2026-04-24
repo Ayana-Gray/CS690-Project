@@ -10,20 +10,26 @@ public class Milestone
     public int TargetValue { get; set; }
     public int CurrentProgress { get; set; }
     public bool IsCompleted => CurrentProgress >= TargetValue;
-    public List<Task> Tasks{ get; }
-    public Goal? ParentGoal { get; }
-
-    public Milestone(string name, DateTime dueDate, int targetValue, Goal? goal = null)
+    public List<GoalTask> GoalTasks{ get; set; }
+    public Milestone(string name, DateTime dueDate, int targetValue,Goal? goal = null)
     {
         this.Name = name;
         this.DueDate = dueDate;
         this.TargetValue = targetValue;
         this.CurrentProgress = 0;
-        this.Tasks = new List<Task>();
-        this.ParentGoal = goal;
+        this.GoalTasks = new List<GoalTask>(); 
     }
     public override string ToString(){
         return this.Name;
+    }
+     public void UpdateProgress(int amount)
+    {
+        CurrentProgress += amount;
+       
+    }   
+    public void SetProgress(int value)
+    {
+        CurrentProgress = value;
     }
     
 }

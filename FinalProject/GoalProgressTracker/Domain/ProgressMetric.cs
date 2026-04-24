@@ -25,6 +25,7 @@ public class ProgressMetric
     public void UpdateProgress(int progress)
     {
         CurrentProgress += progress;
+        
         if (CurrentProgress >= TargetValue)
         {
             IsCompleted = true;

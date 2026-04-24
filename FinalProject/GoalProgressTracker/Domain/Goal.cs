@@ -25,12 +25,14 @@ public class Goal
     {
         return this.Name;
     }
-
-    
     public void UpdateProgress(int amount)
     {
         CurrentProgress += amount;
-        Console.WriteLine($"{Name} progress updated: {CurrentProgress}/{TargetValue}");
+        
+    }   
+    public void SetProgress(int value)
+    {
+        CurrentProgress = value;
     }
     
 }    

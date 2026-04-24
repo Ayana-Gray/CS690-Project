@@ -39,21 +39,15 @@ public class DataManagerTest
 
         
         Assert.Equal(data, loadedData);
-
-        
         File.Delete(filePath);
     }
 
     [Fact]
     public void LoadDataEmptyTest()
     {
-        // Arrange
         string filePath = "emptyfile.txt";
         File.WriteAllText(filePath, string.Empty);
-        // Act
         string loadedData = DataManager.LoadData(filePath);
-
-        // Assert
         Assert.Equal(string.Empty, loadedData);
     }
 }
