@@ -22,7 +22,7 @@ namespace GoalProgressTracker
         public static SetAReminder HalfMarathon = new SetAReminder("Half Marathon Training", "", "HalfMarathonTrainingReminders.txt");
         public static SetAReminder NovelCreation = new SetAReminder("Novel Creation", "", "NovelCreationReminders.txt");
 
-        public void SaveFromConsole()
+        public void SaveAReminder()
         {
             Console.WriteLine($"Enter reminders for {Name} (Press Enter on an empty line to save):");
             

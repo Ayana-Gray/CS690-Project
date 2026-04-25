@@ -1,4 +1,4 @@
-# Development Documentation
+# Development Document
 
 ## Purpose
 This document describes architecture, structure, coding approach, and maintenance practices for Goal Progress Tracker.
@@ -18,6 +18,10 @@ This document describes architecture, structure, coding approach, and maintenanc
 - FinalProject/GoalProgressTracker/Services: Goal-specific service logic
 - FinalProject/GoalProgressTracker/DataManager.cs: JSON/text persistence helper
 - FinalProject/GoalProgressTracker/ScheduleTemplates.cs: Static schedule data
+- FinalProject/GoalProgressTracker/Files.cs: Text files
+- FinalProject/GoalProgressTracker/Menus.cs: Strings used for Menus
+- FinalProject/GoalProgressTracker/DailyTask.cs: Daily Task methods for Homepages
+- FinalProject/GoalProgressTracker/ProgressState.cs: Holds current values in memory while program is running
 
 ## Core Flow
 
@@ -36,7 +40,7 @@ Key domain entities include:
 - Journal behavior
 - Reminder behavior
 
-Current journal/reminder behavior is implemented as static utility-style methods. This keeps logic small and direct for the project timeline.
+Current journal/reminder behavior is implemented as static utility-style methods. This keeps logic small and direct for the project 
 
 ## Persistence Strategy
 
@@ -65,46 +69,20 @@ dotnet run
 
 ## Code Style and Refactor Guidance
 
-Preferred short-term approach:
-
-1. Keep architecture stable before deadline.
+1. Keep architecture stable.
 2. Prioritize readability and bug fixes over major redesign.
 3. Remove dead code quickly when found.
-4. Keep methods focused and small where practical.
-
-Refactor priorities that are safe before submission:
-
-1. Remove unused fields, constructors, and comments.
-2. Deduplicate repeated input-reading logic only when low risk.
-3. Improve naming clarity and user-facing messages.
-4. Add small guard clauses for invalid input.
+4. Deduplicate repeated input-reading logic only when low risk.
+5. Improve naming clarity and user-facing messages.
+6. Add small guard clauses for invalid input.
 
 ## Testing Approach
 
-Given timeline, use practical manual test scripts:
-
-1. Smoke test all main menu paths.
+1. Test all main menu paths.
 2. Verify save/load behavior for metrics.
 3. Verify journal write/read flow.
 4. Verify each reminder file write/read flow.
 5. Verify invalid menu input handling.
 
-Optional automated tests can be added later if time remains.
 
-## Risks and Mitigations
 
-1. Risk: Breaking menu flow during late refactors.
-- Mitigation: Freeze menu structure and do incremental edits.
-
-2. Risk: Data file format changes near deadline.
-- Mitigation: Keep current file format stable until submission.
-
-3. Risk: Regression in persistence logic.
-- Mitigation: Run end-to-end manual tests after each persistence change.
-
-## Suggested Next Improvements (Post-Deadline)
-
-1. Introduce models for journal entries/reminders if advanced features are needed.
-2. Add unit tests for metric serialization and validation.
-3. Move file paths into centralized constants.
-4. Add lightweight logging for save/load errors.
