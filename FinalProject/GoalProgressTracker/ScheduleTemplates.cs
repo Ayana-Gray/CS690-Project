@@ -36,47 +36,4 @@ public class ScheduleTemplates
         "WEEK 15: Mon 4 Mile Easy Run, Tue 3 Mile Speed Run, Thu 3 Mile Easy Run, Sat 10 Mile Long Run",
         "WEEK 16: Mon 4 Mile Easy Run, Tue 3 Mile Speed Run, Thu 2 Mile Easy Run, Sat HALF MARATHON RACE!!!"
     };
-     public static readonly string[] NovelCreationPhaseNames =
-    {
-        "Phase 1: Prewriting",
-        "Phase 2: 1st Draft",
-        "Phase 3: Revision / Structural Editing",
-        "Phase 4: Editing / Polishing",
-        "Phase 5: Final Submission / Proofreading"
-    };
-
-    public static readonly string[][] NovelCreationPhaseTasks =
-    {
-        new[]
-        {
-            "--Gather ideas",
-            "--Outline the plot",
-            "--Develop characters",
-            "--Create a story roadmap"
-        },
-        new[]
-        {
-            "--Write 80,000 words",
-            "--Focus on getting the story out"
-        },
-        new[]
-        {
-            "--Review the story for major flaws",
-            "--Check pacing",
-            "--Find plot holes",
-            "--Evaluate character development"
-        },
-        new[]
-        {
-            "--Refine writing at the sentence level",
-            "--Check flow",
-            "--Check consistency",
-            "--Improve writing style"
-        },
-        new[]
-        {
-            "--Final grammar and formatting checks",
-            "--Prepare manuscript for agents, publishers, or self-publishing"
-        }
-    };
 }

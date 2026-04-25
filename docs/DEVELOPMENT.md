@@ -1,4 +1,4 @@
-# Development Documentation
+# Development Document
 
 ## Purpose
 This document describes architecture, structure, coding approach, and maintenance practices for Goal Progress Tracker.
@@ -18,6 +18,10 @@ This document describes architecture, structure, coding approach, and maintenanc
 - FinalProject/GoalProgressTracker/Services: Goal-specific service logic
 - FinalProject/GoalProgressTracker/DataManager.cs: JSON/text persistence helper
 - FinalProject/GoalProgressTracker/ScheduleTemplates.cs: Static schedule data
+- FinalProject/GoalProgressTracker/Files.cs: Text files
+- FinalProject/GoalProgressTracker/Menus.cs: Strings used for Menus
+- FinalProject/GoalProgressTracker/DailyTask.cs: Daily Task methods for Homepages
+- FinalProject/GoalProgressTracker/ProgressState.cs: Holds current values in memory while program is running
 
 ## Core Flow
 
@@ -36,7 +40,7 @@ Key domain entities include:
 - Journal behavior
 - Reminder behavior
 
-Current journal/reminder behavior is implemented as static utility-style methods. This keeps logic small and direct for the project timeline.
+Current journal/reminder behavior is implemented as static utility-style methods. This keeps logic small and direct for the project 
 
 ## Persistence Strategy
 
@@ -62,4 +66,23 @@ dotnet restore
 dotnet build
 dotnet run
 ```
+
+## Code Style and Refactor Guidance
+
+1. Keep architecture stable.
+2. Prioritize readability and bug fixes over major redesign.
+3. Remove dead code quickly when found.
+4. Deduplicate repeated input-reading logic only when low risk.
+5. Improve naming clarity and user-facing messages.
+6. Add small guard clauses for invalid input.
+
+## Testing Approach
+
+1. Test all main menu paths.
+2. Verify save/load behavior for metrics.
+3. Verify journal write/read flow.
+4. Verify each reminder file write/read flow.
+5. Verify invalid menu input handling.
+
+
 

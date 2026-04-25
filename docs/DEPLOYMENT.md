@@ -1,4 +1,4 @@
-# Deployment Guide
+# Deployment Document
 
 ## Project Overview
 Goal Progress Tracker is a C# console application targeting .NET 10.
@@ -22,6 +22,12 @@ dotnet --version
 ## Local Deployment (Run From Source)
 
 1. Clone or download the repository.
+    Run the following comand to clone it in your local
+
+```bash
+git clone https://github.com/Ayana-Gray/CS690-Project
+```
+
 2. Open a terminal in the repository root.
 3. Move to the project folder:
 
@@ -73,9 +79,6 @@ The application reads/writes files in the project directory, including:
 
 When deploying, keep these files with the executable if you want existing data to carry over.
 
-## Environment Configuration
-
-No environment variables are required for default operation.
 
 ## Basic Verification Checklist
 

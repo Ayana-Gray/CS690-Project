@@ -17,7 +17,7 @@ public class Journal
 
     public static Journal MyJournal = new Journal("My Journal", "");
 
-    static Journal()
+    static Journal() //allows for saved files to be seen after you close  the program and restart
     {
         if (File.Exists(JournalFilePath))
         {
