@@ -67,6 +67,44 @@ dotnet build
 dotnet run
 ```
 
+## SDKs & Tools
+1. Install NET SDK Version 10 from the official page [NET SDK](https://dotnet.microsoft.com/en-us/download) 
+2. Install Git from the official page [Git](https://git-scm.com)
+
+
+## Clone the repository in your local
+1. Run the following command to clone it in your local
+2. git clone https://github.com/Ayana-Gray/CS690-Project
+
+## Testing
+1. cd FinalProject 
+2. cd GoalProgressTracker
+3. Run the test command: dotnet test 
+4. If the tests pass, you are safely in the development environment.
+
+## Running
+1. cd FinalProject
+2. cd GoalProgressTracker
+3. dotnet run
+
+## Development
+Please follow the steps In order to contribute to the project, you must follow these steps.
+This repository is protected so you cannot commit directly into the main branch.
+
+1. Create a branch
+2. Work on your revision
+3. Test locally 
+4. Commit/push your branch
+5. Create a pull request
+
+## Making A Release
+1. Inside the solution directory called: FinalProject
+2. Type "dotnet publish"
+3. Copy/paste 'Journal.txt', 'progressMetrics.json', 'LanguageLearningReminders.txt', 'HalfMarathonReminders.txt', 'NovelCreationReminders.txt' file to the publish folder noted in the output of the command 
+(Program Automatically makes these files as well)
+4. zip -r GoalProgressTracker.zip * to create the zip file of the executables
+5. Create a new release in GitHub with the appropriate version number and notes
+
 ## Code Style and Refactor Guidance
 
 1. Keep architecture stable.
