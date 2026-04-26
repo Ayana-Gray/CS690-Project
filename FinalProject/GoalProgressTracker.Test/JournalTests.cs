@@ -1,31 +1,48 @@
 namespace GoalProgressTracker.Test;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.IO;
-using System.Text;  
 using Xunit;
 
-public class JournalTest
+[Collection("Sequential")]
+public class JournalTests : IDisposable
 {
+    private readonly string testFilePath;
+
+    public JournalTests()
+    {
+        
+        testFilePath = "JournalTest.txt";
+    }
+
     [Fact]
     public void JournalEntryTest()
     {
-        // Arrange
-        Journal journal = new Journal("my Journal","");
-        string entry = "This is a test journal. I wrote this line very long to see if it passes another test.";
-        string JournalFilePath = "Journal.txt";
-        string content = string.Join(Environment.NewLine, entry);
-        int journalWidth = 10; 
-        string finalEntry = ConsoleUI.WrapText(content, journalWidth);
-        string entrytest = "Date: " + DateTime.Now.ToString("D") + "\n" + finalEntry + "\n" + Environment.NewLine;
-        journal.Content += entrytest;
-        File.AppendAllText(JournalFilePath, journal.Content);
-        // Assert
-        Assert.Equal(entrytest, journal.Content);
-        Assert.Contains("Date: " + DateTime.Now.ToString("D"), journal.Content);
-        Assert.True(File.Exists(JournalFilePath));
         
-    }
-}  
+        var journal = Journal.MyJournal;
+        string testInput = "This is a test journal entry. I typed it very long to ensure that it will need to be wrapped when displayed in the console.";
+        int journalWidth = 10; 
+        
+        string wrappedContent = ConsoleUI.WrapText(testInput, journalWidth);
+        string dateHeader = $"Date: {DateTime.Now:D}";
+        string expectedFormat = $"{dateHeader}\n{wrappedContent}\n{Environment.NewLine}";
 
+        
+        journal.Content += expectedFormat;
+        File.AppendAllText(testFilePath, expectedFormat);
+
+        
+        Assert.Contains(dateHeader, journal.Content);
+        Assert.Contains(wrappedContent, journal.Content);
+        Assert.True(File.Exists(testFilePath));
+    }
+
+    public void Dispose()
+    {
+        
+        if (File.Exists(testFilePath))
+        {
+            File.Delete(testFilePath);
+        }
+    }
+}

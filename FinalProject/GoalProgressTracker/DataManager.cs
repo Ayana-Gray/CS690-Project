@@ -49,7 +49,8 @@ public class DataManager
             { "Half Marathon Race Date", HalfMarathonService.HalfMarathonGoal.TargetDate.HasValue ? HalfMarathonService.HalfMarathonGoal.TargetDate.Value.ToString("yyyy-MM-dd") : string.Empty },
             { "Half Marathon Goal Current Progress", HalfMarathonService.HalfMarathonGoal.CurrentProgress.ToString() },
             { "Novel Creation Goal Data", JsonSerializer.Serialize(NovelCreationService.NovelCreationGoal) },
-            { "Half Marathon Goal Data", JsonSerializer.Serialize(HalfMarathonService.HalfMarathonGoal) }
+            { "Half Marathon Goal Data", JsonSerializer.Serialize(HalfMarathonService.HalfMarathonGoal) },
+            { "Milestone Data", JsonSerializer.Serialize(ProgressState.Milestones) }
         };
 
         var json = JsonSerializer.Serialize(metricMap, new JsonSerializerOptions { WriteIndented = true });
@@ -177,6 +178,14 @@ public class DataManager
                 if (savedMarathon != null)
                 {
                     HalfMarathonService.HalfMarathonGoal = savedMarathon;
+                }
+            }
+            if (metricMap.TryGetValue("Milestone Data", out var milestoneJson) && !string.IsNullOrWhiteSpace(milestoneJson))
+            {
+                var savedMilestones = JsonSerializer.Deserialize<List<Milestone>>(milestoneJson);
+                 if (savedMilestones != null)
+                {
+                ProgressState.Milestones = savedMilestones;
                 }
             }  
         }

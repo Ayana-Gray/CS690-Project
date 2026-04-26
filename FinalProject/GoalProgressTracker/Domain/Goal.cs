@@ -1,38 +1,43 @@
 namespace GoalProgressTracker;
 
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
-public class Goal
-{
-    
-    public string Name { get; set; }
-    public DateTime? TargetDate { get; set; }
-    public int TargetValue { get; set; }
-    public int CurrentProgress { get; set; }
-    public bool IsCompleted => CurrentProgress >= TargetValue;
-    public List<Milestone> Milestones{get; set; }
+public class Goal 
+{ 
+public string Name { get; set; } = string.Empty;
+public DateTime? TargetDate { get; set; } 
+public int TargetValue { get; set; } 
+public int CurrentProgress { get; set; } 
 
-    public Goal(string name, int targetValue,  DateTime? targetDate = null)
-    {
-        this.Name = name;
-        this.TargetDate = targetDate;
-        this.TargetValue = targetValue;
-        this.CurrentProgress = 0;
-        this.Milestones = new List<Milestone>();
-    }
-    public override string ToString()
-    {
-        return this.Name;
-    }
-    public void UpdateProgress(int amount)
-    {
-        CurrentProgress += amount;
-        
-    }   
-    public void SetProgress(int value)
-    {
-        CurrentProgress = value;
-    }
+
+[JsonIgnore] 
+public bool IsCompleted => TargetValue > 0 && CurrentProgress >= TargetValue; 
+
+public List<Milestone> Milestones { get; set; } = new List<Milestone>();
+
+
+public Goal() { }
+
+public Goal(string name, int targetValue, DateTime? targetDate = null) 
+{ 
+    this.Name = name; 
+    this.TargetValue = targetValue; 
+    this.TargetDate = targetDate; 
+} 
+
+public override string ToString() => this.Name; 
+
+public void UpdateProgress(int progress) 
+{ 
     
-}    
+    CurrentProgress = Math.Clamp(CurrentProgress + progress, 0, TargetValue); 
+} 
+
+public void SetProgress(int progress) 
+{ 
+   
+    CurrentProgress = Math.Clamp(progress, 0, TargetValue); 
+} 
+}

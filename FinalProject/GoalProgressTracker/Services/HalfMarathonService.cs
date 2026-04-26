@@ -191,7 +191,7 @@ public class HalfMarathonService
     }
  
 
-    internal static int? GetCurrentTrainingWeek()
+    public static int? GetCurrentTrainingWeek()
     {
         
         if (!HalfMarathonGoal.TargetDate.HasValue)
@@ -202,7 +202,7 @@ public class HalfMarathonService
         return CalculateTrainingWeek(HalfMarathonGoal.TargetDate.Value, DateTime.Today);
     }
 
-    private static int? CalculateTrainingWeek(DateTime raceDate, DateTime today)
+    public static int? CalculateTrainingWeek(DateTime raceDate, DateTime today)
     {
         
         DateTime raceDay = raceDate.Date;
@@ -218,10 +218,10 @@ public class HalfMarathonService
         
         int computedWeek = 17 - ((daysUntilRace / 7) + 1);
 
-        // Update the progress property 
+       
         HalfMarathonGoal.CurrentProgress = computedWeek;
 
-        // Return null if we are outside the 16-week window (e.g., started 20 weeks early)
+        // Return null if we are outside the 16-week window
         if (computedWeek < 1 || computedWeek > 16)
         {
             return null;

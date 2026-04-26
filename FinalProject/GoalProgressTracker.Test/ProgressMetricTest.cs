@@ -2,6 +2,7 @@ using Xunit;
 
 namespace GoalProgressTracker.Tests;
 
+[Collection("Sequential")]
 public class ProgressMetricTests
 {
     [Fact]

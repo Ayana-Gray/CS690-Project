@@ -1,7 +1,7 @@
-using System.Net.Mime;
-
 namespace GoalProgressTracker
 {
+using System.Net.Mime;
+
     public class SetAReminder 
     {
         public string Name { get; }
@@ -27,11 +27,11 @@ namespace GoalProgressTracker
             Console.WriteLine($"Enter reminders for {Name} (Press Enter on an empty line to save):");
             
             List<string> lines = new List<string>();
-            string line;
-            
-            while (!string.IsNullOrWhiteSpace(line = Console.ReadLine() ?? ""))
+            string? line;
+
+            while ((line = Console.ReadLine()) != null && !string.IsNullOrWhiteSpace(line))
             {
-                lines.Add(line);
+            lines.Add(line);
             }
             if (lines.Count == 0) 
             { 
@@ -47,12 +47,14 @@ namespace GoalProgressTracker
             {   
             File.WriteAllText(this.FilePath, this.Content);
 
-            ConsoleUI.ConsolePause("Reminder saved successfully (previous content replaced).");
+            //ConsoleUI.ConsolePause("Reminder saved successfully (previous content replaced).");
+            Console.WriteLine("Reminder saved successfully (previous content replaced).");
             }
             catch (Exception ex)
             {
             Console.WriteLine($"Error saving reminder: {ex.Message}");
-            ConsoleUI.ConsolePause("Press any key to continue...");
+            //ConsoleUI.ConsolePause("Press Enter to continue...");
+    
             }
         }
     }
