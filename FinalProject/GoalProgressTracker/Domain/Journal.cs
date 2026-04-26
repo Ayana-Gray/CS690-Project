@@ -2,45 +2,47 @@ namespace GoalProgressTracker;
 
 using System;
 using System.IO;
+using System.Collections.Generic;
 
-public class Journal 
+public class Journal
 {
     public string Name { get; }
     public string Content { get; set; }
     private const string JournalFilePath = "Journal.txt";
 
-    public Journal(string name, string content)
-    {
-        this.Name = name;
-        this.Content = content;
-    }
+    
+    public static Journal MyJournal { get; private set; }
 
-    public static Journal MyJournal = new Journal("My Journal", "");
-
-    static Journal() //allows for saved files to be seen after you close  the program and restart
+    static Journal()
     {
+       
+        string existingContent = "";
         if (File.Exists(JournalFilePath))
         {
-            MyJournal.Content = File.ReadAllText(JournalFilePath);
+            existingContent = File.ReadAllText(JournalFilePath);
         }
+        MyJournal = new Journal("My Journal", existingContent);
+    }
+
+    public Journal(string name, string content)
+    {
+        Name = name;
+        Content = content;
     }
 
     public static void CreateJournalEntry()
     {
-        Console.WriteLine();
-        Console.WriteLine("Journal what you love, what you hate, what’s in your head, what’s important.\nJournaling organizes your thoughts; allows you to see things in a concrete \nway that otherwise you might not see."+ "— Kay WalkingStick\n");
+        Console.WriteLine("\nJournal what you love, what you hate, what’s in your head, what’s important.");
+        Console.WriteLine("Journaling organizes your thoughts; allows you to see things in a concrete");
+        Console.WriteLine("way that otherwise you might not see. — Kay WalkingStick\n");
         Console.WriteLine(new string('-', 80));
-        Console.WriteLine("");
-        Console.WriteLine("Enter your journal entry. Submit an empty line to finish.");
+        Console.WriteLine("\nEnter your journal entry. Submit an empty line to finish.");
+
         var lines = new List<string>();
         while (true)
         {
-            var line = Console.ReadLine() ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(line))
-            {
-                break;
-            }
-
+            var line = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(line)) break;
             lines.Add(line);
         }
 
@@ -49,14 +51,20 @@ public class Journal
             ConsoleUI.ConsolePause("No content entered. Entry not saved.");
             return;
         }
-        string content = string.Join(Environment.NewLine, lines);
-        int journalWidth = 80; 
-        string finalEntry = ConsoleUI.WrapText(content, journalWidth);
-        string entry = "Date: " + DateTime.Now.ToString("D") + "\n" + finalEntry + "\n" + Environment.NewLine;
-        Journal.MyJournal.Content += entry;
-        File.AppendAllText(JournalFilePath, entry);
+
+        
+        string rawContent = string.Join(Environment.NewLine, lines);
+        int journalWidth = 80;
+        string wrappedContent = ConsoleUI.WrapText(rawContent, journalWidth);
+        
+       
+        string newEntry = $"Date: {DateTime.Now:D}\n{wrappedContent}\n{Environment.NewLine}";
+
+        MyJournal.Content += newEntry;
+        File.AppendAllText(JournalFilePath, newEntry);
+
         ConsoleUI.ConsolePause("Journal entry saved successfully.");
     }
-
 }
+
 

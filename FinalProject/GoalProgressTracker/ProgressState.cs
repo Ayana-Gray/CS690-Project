@@ -19,4 +19,5 @@ public class ProgressState
     public static ProgressMetric novelPhasesCompleted = new ProgressMetric("Novel Phase Completion", "Phase(s)", 5);
     public static ProgressMetric novelWordCountCompleted = new ProgressMetric("Novel Word Count", "Words", 80000);
     public static readonly string metricsDataPath = "progressMetrics.json";
+    public static List<Milestone> Milestones { get; set; } = new List<Milestone>();
 }

@@ -41,7 +41,7 @@ public class ConsoleUI
                     keepRunning = false;
                     break;
                 default:
-                    Console.WriteLine("Invalid choice. Please select a valid goal.");
+                    Console.WriteLine("Invalid choice. Please select 1-6.");
                     ConsolePause("Press any key to continue...");
                     break;
             }
@@ -111,7 +111,7 @@ public class ConsoleUI
                 case "1":
                     ShowHeader("       Record Progress for Vocabulary Words Learned", 60);
                     Console.WriteLine();
-                    Console.WriteLine($"Current Vocabulary Words Learned: {ProgressState.vocabularyWordsLearned.CurrentProgress}  / {ProgressState.vocabularyWordsLearned.TargetValue}  {ProgressState.vocabularyWordsLearned.Unit}");
+                    Console.WriteLine($"Current Vocabulary Words Learned: {ProgressState.vocabularyWordsLearned.CurrentProgress} /{ProgressState.vocabularyWordsLearned.TargetValue}  {ProgressState.vocabularyWordsLearned.Unit}");
                     ShowMenuFooter(60);
                     RecordMetricProgress("Vocabulary Words Learned");
                     Console.WriteLine();    
@@ -119,7 +119,7 @@ public class ConsoleUI
                 case "2":
                     ShowHeader("      Record Progress for Reading Lessons Completed", 60);
                     Console.WriteLine();
-                    Console.WriteLine($"Current Reading Lessons Completed: {ProgressState.readingLessonsCompleted.CurrentProgress} / {ProgressState.readingLessonsCompleted.TargetValue} {ProgressState.readingLessonsCompleted.Unit}");
+                    Console.WriteLine($"Current Reading Lessons Completed: {ProgressState.readingLessonsCompleted.CurrentProgress}/{ProgressState.readingLessonsCompleted.TargetValue} {ProgressState.readingLessonsCompleted.Unit}");
                     Console.WriteLine();    
                     Console.WriteLine(new string('-', 60));
                     RecordMetricProgress("Reading Lessons Completed");
@@ -127,14 +127,14 @@ public class ConsoleUI
                     break;
                 case "3":
                     ShowHeader("    Record Progress for Verbal Exercises Completed", 60);
-                    Console.WriteLine("Current Verbal Exercises Completed: " + ProgressState.verbalExercisesCompleted.CurrentProgress + " / " + ProgressState.verbalExercisesCompleted.TargetValue + " " + ProgressState.verbalExercisesCompleted.Unit);
+                    Console.WriteLine($"Current Verbal Exercises Completed: {ProgressState.verbalExercisesCompleted.CurrentProgress}/{ProgressState.verbalExercisesCompleted.TargetValue} {ProgressState.verbalExercisesCompleted.Unit}");
                     Console.WriteLine();
                     Console.WriteLine(new string('-', 60));
                     RecordMetricProgress("Verbal Exercises Completed");
                     break;
                 case "4":
                     ShowHeader("    Record Progress for Listening Exercises Completed", 60);
-                    Console.WriteLine("\nCurrent Listening Exercises Completed: " + ProgressState.listeningExercisesCompleted.CurrentProgress + " / " + ProgressState.listeningExercisesCompleted.TargetValue + " " + ProgressState.listeningExercisesCompleted.Unit);
+                    Console.WriteLine($"Current Listening Exercises Completed: {ProgressState.listeningExercisesCompleted.CurrentProgress}/{ProgressState.listeningExercisesCompleted.TargetValue} {ProgressState.listeningExercisesCompleted.Unit}");
                     Console.WriteLine();
                     Console.WriteLine(new string('-', 60));
                     RecordMetricProgress("Listening Exercises Completed");
@@ -194,7 +194,7 @@ public class ConsoleUI
                         Console.WriteLine($"Current week runs: {DataManager.GetRunsForWeek(week)}/4 {ProgressState.halfMarathonRunsCompleted.Unit}");
     
                         
-                        string target = HalfMarathonService.HalfMarathonWeeklyTargetMiles[WeekIndexed];
+                        string target= HalfMarathonService.HalfMarathonGoal.Milestones[WeekIndexed].TargetValue.ToString();
                         Console.WriteLine($"Current week miles: {DataManager.GetMilesForWeek(week)}/{target} {ProgressState.halfMarathonMilesCompleted.Unit}");
                     }
                     PrintRunsAndMilesPerWeek();
@@ -221,13 +221,14 @@ public class ConsoleUI
                         Console.WriteLine($"Current week runs: {DataManager.GetRunsForWeek(week)}/4 {ProgressState.halfMarathonRunsCompleted.Unit}");
     
                         
-                        string target = HalfMarathonService.HalfMarathonWeeklyTargetMiles[WeekIndexed];
+                        //string target = HalfMarathonService.HalfMarathonWeeklyTargetMiles[WeekIndexed];
+                        string target= HalfMarathonService.HalfMarathonGoal.Milestones[WeekIndexed].TargetValue.ToString();
                         Console.WriteLine($"Current week miles: {DataManager.GetMilesForWeek(week)}/{target} {ProgressState.halfMarathonMilesCompleted.Unit}");
                     }
 
                     Console.WriteLine();
                     Console.WriteLine($"Overall progress towards goal: ({HalfMarathonService.GetCurrentTrainingWeek() / 16.0 * 100}%)");
-                    Console.WriteLine($"Total runs completed: {ProgressState.halfMarathonRunsCompleted.CurrentProgress} / {ProgressState.halfMarathonRunsCompleted.TargetValue} {ProgressState.halfMarathonRunsCompleted.Unit}");
+                    Console.WriteLine($"Total runs completed: {ProgressState.halfMarathonRunsCompleted.CurrentProgress}/{ProgressState.halfMarathonRunsCompleted.TargetValue} {ProgressState.halfMarathonRunsCompleted.Unit}");
                     Console.WriteLine($"Total miles completed: {ProgressState.halfMarathonMilesCompleted.CurrentProgress}/{ProgressState.halfMarathonMilesCompleted.TargetValue} {ProgressState.halfMarathonMilesCompleted.Unit}");
                     PrintRunsAndMilesPerWeek();
                     ShowFooter(55);
@@ -273,8 +274,8 @@ public class ConsoleUI
                     break;
                 case "2":
                     ShowHeader("       Record Progress for Novel Creation ", 60);
-                    Console.WriteLine("\nCurrent Words Written: " + ProgressState.novelWordCountCompleted.CurrentProgress + " / " + ProgressState.novelWordCountCompleted.TargetValue + " " + ProgressState.novelWordCountCompleted.Unit);
-                    Console.WriteLine("\nCurrent Phases Completed: " + ProgressState.novelPhasesCompleted.CurrentProgress + " / " + ProgressState.novelPhasesCompleted.TargetValue);
+                    Console.WriteLine($"\nCurrent Words Written: {ProgressState.novelWordCountCompleted.CurrentProgress}/{ProgressState.novelWordCountCompleted.TargetValue} {ProgressState.novelWordCountCompleted.Unit}");
+                    Console.WriteLine($"\nCurrent Phases Completed: {ProgressState.novelPhasesCompleted.CurrentProgress}/{ProgressState.novelPhasesCompleted.TargetValue} {ProgressState.novelPhasesCompleted.Unit}");
                     ShowMenuFooter(60);
                     RecordMetricProgress("Novel Word Count Completed");
                     RecordMetricProgress("Novel Phases Completed");
@@ -282,8 +283,8 @@ public class ConsoleUI
                     break;
                 case "3":
                     ShowHeader("     Novel Creation Progress Report", 60);
-                    Console.WriteLine($"\nWords Written: {ProgressState.novelWordCountCompleted.CurrentProgress} / {ProgressState.novelWordCountCompleted.TargetValue} ({ProgressMetric.CalculateProgress(ProgressState.novelWordCountCompleted.CurrentProgress, ProgressState.novelWordCountCompleted.TargetValue)}% Completed)");
-                    Console.WriteLine($"\nPhases Completed: {ProgressState.novelPhasesCompleted.CurrentProgress} / {ProgressState.novelPhasesCompleted.TargetValue} ({ProgressMetric.CalculateProgress(ProgressState.novelPhasesCompleted.CurrentProgress, ProgressState.novelPhasesCompleted.TargetValue)}% Completed)");
+                    Console.WriteLine($"\nWords Written: {ProgressState.novelWordCountCompleted.CurrentProgress}/{ProgressState.novelWordCountCompleted.TargetValue} ({ProgressMetric.CalculateProgress(ProgressState.novelWordCountCompleted.CurrentProgress, ProgressState.novelWordCountCompleted.TargetValue)}% Completed)");
+                    Console.WriteLine($"\nPhases Completed: {ProgressState.novelPhasesCompleted.CurrentProgress}/{ProgressState.novelPhasesCompleted.TargetValue} ({ProgressMetric.CalculateProgress(ProgressState.novelPhasesCompleted.CurrentProgress, ProgressState.novelPhasesCompleted.TargetValue)}% Completed)");
                     ShowMenuFooter(60);
                     ConsolePause("Press any key to continue...");
                     Console.WriteLine("You selected: View Novel Creation Progress Report");
@@ -307,7 +308,7 @@ public class ConsoleUI
 
     private static void JournalMenu()
     {
-        //var journalc = new Journal();
+        
         var backToMain = false;
 
         while (!backToMain && keepRunning)
@@ -412,10 +413,10 @@ public class ConsoleUI
         ShowHeader("              Welcome to the Language Learning Homepage!\n                       " +DateTime.Now.ToString("D"), 70);
         Console.WriteLine ();
         var overallProgress = DataManager.SyncLanguageLearningGoalProgress();
-        Console.WriteLine($"Vocabulary Words Learned:      {ProgressState.vocabularyWordsLearned.CurrentProgress} / {ProgressState.vocabularyWordsLearned.TargetValue} {ProgressState.vocabularyWordsLearned.Unit}");
-        Console.WriteLine($"Reading Lessons Completed:     {ProgressState.readingLessonsCompleted.CurrentProgress} / {ProgressState.readingLessonsCompleted.TargetValue} {ProgressState.readingLessonsCompleted.Unit}");
-        Console.WriteLine($"Verbal Exercises Completed:    {ProgressState.verbalExercisesCompleted.CurrentProgress} / {ProgressState.verbalExercisesCompleted.TargetValue} {ProgressState.verbalExercisesCompleted.Unit}");
-        Console.WriteLine($"Listening Exercises Completed: {ProgressState.listeningExercisesCompleted.CurrentProgress} / {ProgressState.listeningExercisesCompleted.TargetValue} {ProgressState.listeningExercisesCompleted.Unit}");
+        Console.WriteLine($"Vocabulary Words Learned:      {ProgressState.vocabularyWordsLearned.CurrentProgress}/{ProgressState.vocabularyWordsLearned.TargetValue} {ProgressState.vocabularyWordsLearned.Unit}");
+        Console.WriteLine($"Reading Lessons Completed:     {ProgressState.readingLessonsCompleted.CurrentProgress}/{ProgressState.readingLessonsCompleted.TargetValue} {ProgressState.readingLessonsCompleted.Unit}");
+        Console.WriteLine($"Verbal Exercises Completed:    {ProgressState.verbalExercisesCompleted.CurrentProgress}/{ProgressState.verbalExercisesCompleted.TargetValue} {ProgressState.verbalExercisesCompleted.Unit}");
+        Console.WriteLine($"Listening Exercises Completed: {ProgressState.listeningExercisesCompleted.CurrentProgress}/{ProgressState.listeningExercisesCompleted.TargetValue} {ProgressState.listeningExercisesCompleted.Unit}");
         Console.WriteLine();
         ShowFooter(70);
         Console.WriteLine(DailyTask.LanguageLearningDailyTask());
@@ -440,8 +441,8 @@ public class ConsoleUI
         var activeWeek = HalfMarathonService.GetCurrentTrainingWeek();
         if (activeWeek.HasValue)
         {   
-            Console.WriteLine("Current week runs: " + DataManager.GetRunsForWeek(activeWeek.Value) + "/4 Runs");
-            Console.WriteLine("Current week miles: " + DataManager.GetMilesForWeek(activeWeek.Value) + "/" + HalfMarathonService.HalfMarathonWeeklyTargetMiles[activeWeek.Value - 1]+ " Miles");
+            Console.WriteLine($"Current week runs: {DataManager.GetRunsForWeek(activeWeek.Value)}/4 Runs");
+            Console.WriteLine($"Current week miles: {DataManager.GetMilesForWeek(activeWeek.Value)}/{HalfMarathonService.HalfMarathonWeeklyTargetMiles[activeWeek.Value - 1]} Miles");
         }
         Console.WriteLine($"Total Runs Completed: {ProgressState.halfMarathonRunsCompleted.CurrentProgress}/{ProgressState.halfMarathonRunsCompleted.TargetValue} {ProgressState.halfMarathonRunsCompleted.Unit}");
         Console.WriteLine($"Total Miles Completed: {ProgressState.halfMarathonMilesCompleted.CurrentProgress}/{ProgressState.halfMarathonMilesCompleted.TargetValue} {ProgressState.halfMarathonMilesCompleted.Unit}");
@@ -466,8 +467,8 @@ public class ConsoleUI
         NovelCreationPhaseStatus();
         ShowFooter(70);
         {
-            Console.WriteLine("Current Progress: " + ProgressState.novelPhasesCompleted.CurrentProgress + " / " + ProgressState.novelPhasesCompleted.TargetValue + " phases completed.");
-            Console.WriteLine("Current Word Count: " + ProgressState.novelWordCountCompleted.CurrentProgress + " / " + ProgressState.novelWordCountCompleted.TargetValue + " words written.");   
+            Console.WriteLine($"Current Progress: {ProgressState.novelPhasesCompleted.CurrentProgress}/{ProgressState.novelPhasesCompleted.TargetValue} phases completed.");
+            Console.WriteLine($"Current Word Count: {ProgressState.novelWordCountCompleted.CurrentProgress}/{ProgressState.novelWordCountCompleted.TargetValue} words written.");   
         }
         
         Console.WriteLine();
@@ -535,7 +536,8 @@ public class ConsoleUI
         Console.WriteLine($"You currently have {DataManager.GetMilesForWeek(week)}/{HalfMarathonService.HalfMarathonGoal.Milestones[week - 1].TargetValue} miles recorded for Week {week}");
         Console.Write($"How many miles do you want to record for week {week}? ");
         var milesInput = Console.ReadLine();
-        if (!int.TryParse(milesInput, out var miles) || miles < 0 ||  (DataManager.GetMilesForWeek(week) + miles) > HalfMarathonService.HalfMarathonGoal.Milestones[week - 1].TargetValue)
+        //not an integer, negative, or exceeds weekly target when added to current miles for the week
+        if (!int.TryParse(milesInput, out var miles) || miles < 0 ||  (DataManager.GetMilesForWeek(week) + miles) > HalfMarathonService.HalfMarathonGoal.Milestones[week - 1].TargetValue) 
         {
             Console.WriteLine("Invalid entry Enter a non-negative whole number\nDont exceed mile target value for the week");
             return;
@@ -591,10 +593,12 @@ public class ConsoleUI
             DataManager.SyncLanguageLearningGoalProgress(); 
             DataManager.SaveMetricProgress(); 
             Console.WriteLine();
+            ConsolePause("Press any key to continue...");
         } 
         else 
         { 
-        Console.WriteLine("Invalid input. Please enter a numeric value."); 
+        Console.WriteLine("Invalid input. Please enter a numeric value.");
+        ConsolePause("Press any key to continue..."); 
         } 
     }
 
@@ -603,17 +607,18 @@ public class ConsoleUI
         if (ProgressState.halfMarathonMilesByWeek.Count > 0)
         {
             Console.WriteLine();
-            Console.WriteLine("Miles And Runs Per Week:");
+            Console.WriteLine("Runs and Miles Per Week:");
             List<int> weeks = ProgressState.halfMarathonMilesByWeek.Keys.OrderBy(x => x).ToList();
             for(int i = 0; i < weeks.Count; i++)
             {
                 ProgressState.halfMarathonRunsByWeek.TryGetValue(weeks[i], out var runs);
                 ProgressState.halfMarathonMilesByWeek.TryGetValue(weeks[i], out var miles);
             
-                Console.WriteLine($"Week {weeks[i]}: {miles}/{HalfMarathonService.HalfMarathonWeeklyTargetMiles[weeks[i] - 1]} Miles, {runs}/4 Runs\n");
+                Console.WriteLine($"Week {weeks[i]}: {runs}/4 Runs, {miles}/{HalfMarathonService.HalfMarathonGoal.Milestones[weeks[i] - 1].TargetValue} Miles");
             }
         }
     }
+
     private static void SetMarathonDate()
     {
         ShowHeader("        Set Your Marathon Race Date", 50);
@@ -631,7 +636,7 @@ public class ConsoleUI
         
         var input = Console.ReadLine()?.Trim();
         
-        // If user pressed Enter with no text, go back
+        
         if (string.IsNullOrWhiteSpace(input))
         {
             ConsolePause("Cancelled. Press any key to continue...");
@@ -720,11 +725,13 @@ public class ConsoleUI
         Console.WriteLine();
         Console.WriteLine(new string('-', width));
     }
+
     public static void ShowFooter(int width)
     {
         Console.WriteLine(new string('-', width));
         Console.WriteLine();
     }
+
     public static void ShowHeader(string title,int width)
     {
         Console.Clear();
@@ -732,12 +739,15 @@ public class ConsoleUI
         Console.WriteLine(title);
         Console.WriteLine(new string('-', width));
     }
+
     public static void ConsolePause(string title)
     {
         Console.WriteLine(title);
         Console.ReadKey();
         Console.Clear();
+        
     }
+
      public static void WriteOptions(IEnumerable<string> options)
     {
         foreach (var option in options)

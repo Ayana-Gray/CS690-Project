@@ -1,35 +1,43 @@
 namespace GoalProgressTracker;
 
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
-public class Milestone
-{
-    public string Name { get; }
-    public DateTime DueDate { get; }
-    public int TargetValue { get; set; }
-    public int CurrentProgress { get; set; }
-    public bool IsCompleted => CurrentProgress >= TargetValue;
-    public List<GoalTask> GoalTasks{ get; set; }
-    public Milestone(string name, DateTime dueDate, int targetValue,Goal? goal = null)
-    {
-        this.Name = name;
-        this.DueDate = dueDate;
-        this.TargetValue = targetValue;
-        this.CurrentProgress = 0;
-        this.GoalTasks = new List<GoalTask>(); 
-    }
-    public override string ToString(){
-        return this.Name;
-    }
-     public void UpdateProgress(int amount)
-    {
-        CurrentProgress += amount;
-       
-    }   
-    public void SetProgress(int value)
-    {
-        CurrentProgress = value;
-    }
+public class Milestone 
+{ 
+    public string Name { get; set; } = string.Empty; 
+    public DateTime DueDate { get; set; } 
+    public int TargetValue { get; set; } 
+    public int CurrentProgress { get; set; } 
+
+    [JsonIgnore] 
+    public bool IsCompleted => TargetValue > 0 && CurrentProgress >= TargetValue; 
+
+    public List<GoalTask> GoalTasks { get; set; } = new List<GoalTask>();
+
     
+    public Milestone() { }
+
+    [JsonConstructor]
+    public Milestone(string name, DateTime dueDate, int targetValue, Goal? goal = null) 
+    { 
+        this.Name = name; 
+        this.DueDate = dueDate; 
+        this.TargetValue = targetValue; 
+        this.GoalTasks = new List<GoalTask>(); 
+    } 
+
+   
+    public void UpdateProgress(int progress) 
+    { 
+        CurrentProgress = Math.Clamp(CurrentProgress + progress, 0, TargetValue);
+    } 
+
+    public void SetProgress(int value) 
+    { 
+        CurrentProgress = Math.Clamp(value, 0, TargetValue);
+    } 
+
+    public override string ToString() => this.Name; 
 }
