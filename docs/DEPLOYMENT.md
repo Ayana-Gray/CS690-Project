@@ -1,5 +1,3 @@
-# Deployment Document
-
 ## Project Overview
 Goal Progress Tracker is a C# console application targeting .NET 10.
 
@@ -10,8 +8,8 @@ Goal Progress Tracker is a C# console application targeting .NET 10.
 ## Prerequisites
 
 1. OS: Windows, macOS, or Linux
-2. .NET SDK: 10.0 (or the version required by the project target framework)
-3. Git (optional, for source checkout)
+2. .NET SDK: 10.0 (Install NET SDK Version 10 from the official page [NET SDK](https://dotnet.microsoft.com/en-us/download))
+3. Git (Install Git from the official page [Git](https://git-scm.com/))
 
 Verify SDK:
 
@@ -19,53 +17,36 @@ Verify SDK:
 dotnet --version
 ```
 
-## Local Deployment (Run From Source)
+## Local Deployment
 
-1. Clone or download the repository.
-    Run the following comand to clone it in your local
-
+1. Clone Repository or download the latest Release.
+- Run the following command to clone it in your local
 ```bash
 git clone https://github.com/Ayana-Gray/CS690-Project
 ```
-
-2. Open a terminal in the repository root.
-3. Move to the project folder:
+   *Now type this to get it to run:
 
 ```bash
-cd FinalProject/GoalProgressTracker
+cd FinalProject
+cd GoalProgressTracker
+dotnet run
 ```
 
-4. Restore dependencies:
+- Or you can obtain the latest release at:
 
 ```bash
-dotnet restore
+https://github.com/Ayana-Gray/CS690-Project/releases/tag/v1.0.0
 ```
+   * Download the executable called GoalProgressTracker.zip
 
-5. Build the app:
+   * Unzip it in your Local
 
+   * In your terminal type:
 ```bash
-dotnet build -c Release
+cd Downloads
+cd GoalProgressTracker 
+dotnet GoalProgressTracker.dll
 ```
-
-6. Run the app:
-
-```bash
-dotnet run -c Release
-```
-
-## Publish a Deployable Build
-
-From FinalProject/GoalProgressTracker:
-
-```bash
-dotnet publish -c Release -o ./publish
-```
-
-Published output will be in:
-
-- FinalProject/GoalProgressTracker/publish
-
-You can distribute this folder to another machine with the appropriate runtime.
 
 ## Data and Runtime Files
 
@@ -79,6 +60,9 @@ The application reads/writes files in the project directory, including:
 
 When deploying, keep these files with the executable if you want existing data to carry over.
 
+## Environment Configuration
+
+No environment variables are required for default operation.
 
 ## Basic Verification Checklist
 
