@@ -35,7 +35,7 @@ dotnet run
 - Or you can obtain the latest release at:
 
 ```bash
-https://github.com/Ayana-Gray/CS690-Project/releases/tag/v1.0.0
+https://github.com/Ayana-Gray/CS690-Project/releases/tag/v2.0.0
 ```
    * Download the executable called GoalProgressTracker.zip
 
@@ -59,13 +59,12 @@ The application reads/writes files in the project directory, including:
 - NovelCreationReminders.txt
 
 When deploying, keep these files with the executable if you want existing data to carry over.
+Otherwise, they will automatically be created when running the application.
 
 ## Environment Configuration
-
 No environment variables are required for default operation.
 
 ## Basic Verification Checklist
-
 After deployment, verify:
 
 1. App starts and Main Menu appears.

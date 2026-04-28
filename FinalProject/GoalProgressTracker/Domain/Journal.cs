@@ -8,7 +8,7 @@ public class Journal
 {
     public string Name { get; }
     public string Content { get; set; }
-    private const string JournalFilePath = "Journal.txt";
+    public static string JournalFilePath = "Journal.txt";
 
     
     public static Journal MyJournal { get; private set; }

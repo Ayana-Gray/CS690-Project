@@ -191,7 +191,7 @@ public class DataManager
         }
         catch
         {
-            // Ignore abnormal data and continue with default values.
+            // Ignore abnormal data
         }
     }
 

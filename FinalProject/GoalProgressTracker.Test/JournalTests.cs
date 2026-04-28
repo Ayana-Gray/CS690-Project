@@ -34,6 +34,7 @@ public class JournalTests : IDisposable
         
         Assert.Contains(dateHeader, journal.Content);
         Assert.Contains(wrappedContent, journal.Content);
+        Assert.Equal(expectedFormat, journal.Content); 
         Assert.True(File.Exists(testFilePath));
     }
 

@@ -576,8 +576,16 @@ public class ConsoleUI
                     {
                         Console.WriteLine("Cannot record Phase: Novel Word Count must be at least 80,000.");break;
                     }
+                    if (progress > 1)
+                    {
+                        Console.WriteLine("Cannot skip phases. Please complete the current phase before moving to the next."); break;
+                    }
                     ProgressState.novelPhasesCompleted.UpdateProgress(progress);break; 
                 case "Novel Word Count Completed": 
+                    if (progress > 0 && ProgressState.novelPhasesCompleted.CurrentProgress == 0)
+                    {
+                        Console.WriteLine("Cannot record word count progress: No phases completed yet."); break;
+                    }
                     ProgressState.novelWordCountCompleted.UpdateProgress(progress); break; 
                 case "Half Marathon Runs Completed": 
                     ProgressState.halfMarathonRunsCompleted.UpdateProgress(progress); break; 
@@ -586,19 +594,15 @@ public class ConsoleUI
                 default: 
                     Console.WriteLine("Invalid Metric type."); return; 
             } 
-
-            Console.WriteLine("Progress saved successfully."); 
-
-        
             DataManager.SyncLanguageLearningGoalProgress(); 
             DataManager.SaveMetricProgress(); 
+            ConsolePause("Progress saved successfully.\nPress any key to continue..."); 
             Console.WriteLine();
-            ConsolePause("Press any key to continue...");
+            
         } 
         else 
         { 
-        Console.WriteLine("Invalid input. Please enter a numeric value.");
-        ConsolePause("Press any key to continue..."); 
+        ConsolePause("Invalid input. Please enter a numeric value.\nPress any key to continue...");
         } 
     }
 
@@ -739,13 +743,11 @@ public class ConsoleUI
         Console.WriteLine(title);
         Console.WriteLine(new string('-', width));
     }
-
     public static void ConsolePause(string title)
     {
         Console.WriteLine(title);
         Console.ReadKey();
         Console.Clear();
-        
     }
 
      public static void WriteOptions(IEnumerable<string> options)
