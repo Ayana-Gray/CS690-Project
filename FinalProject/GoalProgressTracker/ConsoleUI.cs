@@ -419,6 +419,7 @@ public class ConsoleUI
         Console.WriteLine($"Listening Exercises Completed: {ProgressState.listeningExercisesCompleted.CurrentProgress}/{ProgressState.listeningExercisesCompleted.TargetValue} {ProgressState.listeningExercisesCompleted.Unit}");
         Console.WriteLine();
         ShowFooter(70);
+        Console.WriteLine("Today's Daily Task: ");
         Console.WriteLine(DailyTask.LanguageLearningDailyTask());
         Console.WriteLine();
         Console.WriteLine("Current Reminder(s):");
