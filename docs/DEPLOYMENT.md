@@ -35,7 +35,7 @@ dotnet run
 - Or you can obtain the latest release at:
 
 ```bash
-https://github.com/Ayana-Gray/CS690-Project/releases/tag/v2.0.0
+https://github.com/Ayana-Gray/CS690-Project/releases/tag/v3.0.0
 ```
    * Download the executable called GoalProgressTracker.zip
 
