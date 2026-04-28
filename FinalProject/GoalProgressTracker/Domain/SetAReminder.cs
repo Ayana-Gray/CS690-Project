@@ -1,6 +1,6 @@
 namespace GoalProgressTracker
 {
-using System.Net.Mime;
+using System.Collections.Generic; 
 
     public class SetAReminder 
     {
@@ -47,13 +47,13 @@ using System.Net.Mime;
             {   
             File.WriteAllText(this.FilePath, this.Content);
 
-            //ConsoleUI.ConsolePause("Reminder saved successfully (previous content replaced).");
+            
             Console.WriteLine("Reminder saved successfully (previous content replaced).");
             }
             catch (Exception ex)
             {
             Console.WriteLine($"Error saving reminder: {ex.Message}");
-            //ConsoleUI.ConsolePause("Press Enter to continue...");
+            
     
             }
         }

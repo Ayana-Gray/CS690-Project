@@ -4,8 +4,8 @@ using System;
 using System.IO;
 using Xunit;
 
-
-public class DataManagerTest
+[Collection("Sequential")]
+public class DataManagerTest 
 {
     [Fact]
     public void SaveDataTest()
@@ -46,8 +46,43 @@ public class DataManagerTest
     public void LoadDataEmptyTest()
     {
         string filePath = "emptyfile.txt";
+    try 
+    {
         File.WriteAllText(filePath, string.Empty);
         string loadedData = DataManager.LoadData(filePath);
         Assert.Equal(string.Empty, loadedData);
     }
+    finally 
+    {
+        if (File.Exists(filePath)) File.Delete(filePath);
+    }
+    }
+   
+    [Fact]
+    public void SaveAndLoadMetricsData()
+    {
+        int originalVocabProgress = ProgressState.vocabularyWordsLearned.CurrentProgress;
+        
+        var mockMap = new Dictionary<string, string>
+        {
+           {"Vocabulary Words Learned", "100" }
+        };
+
+        try 
+        {
+            if (mockMap.TryGetValue("Vocabulary Words Learned", out var vocabValue) && 
+                int.TryParse(vocabValue, out var vocabProgress))
+            {
+                ProgressState.vocabularyWordsLearned.SetProgress(vocabProgress);
+            }
+
+            Assert.Equal(100, ProgressState.vocabularyWordsLearned.CurrentProgress);
+        }
+        finally 
+        {
+            ProgressState.vocabularyWordsLearned.SetProgress(originalVocabProgress);
+        }
+    }
 }
+
+    

@@ -9,10 +9,10 @@ public class GoalTests
     public void UpdateProgressTest()
     {
         var goalTests = new Goal("Read Book", 100);
-        goalTests.UpdateProgress(0);
+        goalTests.UpdateProgress(-1);
         Assert.Equal(0, goalTests.CurrentProgress);
         Assert.False(goalTests.IsCompleted);
-        goalTests.UpdateProgress(100);
+        goalTests.UpdateProgress(110);
         Assert.Equal(100, goalTests.CurrentProgress);
         Assert.True(goalTests.IsCompleted);
     }
@@ -21,7 +21,7 @@ public class GoalTests
     public void SetProgressTest()
     {
         var goalTests = new Goal("Complete Exercise", 25);
-        goalTests.SetProgress(0);
+        goalTests.SetProgress(-1);
         Assert.Equal(0, goalTests.CurrentProgress);
         goalTests.SetProgress(35);
         Assert.Equal(25, goalTests.CurrentProgress);
