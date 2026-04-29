@@ -20,10 +20,10 @@ public class LanguageLearningServiceTests : IDisposable
     [Fact]
     public void CalculateOverallProgress_AveragesFourMetrics()
     {
-        var Vocabularystudied = new ProgressMetric("Apples","", 100);
-        var VocalExercises = new ProgressMetric("Berries","", 100);
-        var AuditoryLessons = new ProgressMetric("Cherries","", 100);
-        var Readingexercises = new ProgressMetric("Dates","", 100);
+        var Vocabularystudied = new ProgressMetric("Words","", 100);
+        var VocalExercises = new ProgressMetric("Vocal Exercises","", 100);
+        var AuditoryLessons = new ProgressMetric("Auditory Lessons","", 100);
+        var Readingexercises = new ProgressMetric("Reading Exercises","", 100);
         Vocabularystudied.SetProgress(25);
         VocalExercises.SetProgress(50);
         AuditoryLessons.SetProgress(75);

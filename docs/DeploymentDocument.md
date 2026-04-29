@@ -5,7 +5,7 @@ Goal Progress Tracker is a C# console application targeting .NET 10.
 - Entry point: FinalProject/GoalProgressTracker/Program.cs
 - Solution file: FinalProject/FinalProject.slnx
 
-## Prerequisites
+## Requirements
 
 1. OS: Windows, macOS, or Linux
 2. .NET SDK: 10.0 (Install NET SDK Version 10 from the official page [NET SDK](https://dotnet.microsoft.com/en-us/download))
@@ -48,7 +48,7 @@ cd GoalProgressTracker
 dotnet GoalProgressTracker.dll
 ```
 
-## Data and Runtime Files
+## Data Files
 
 The application reads/writes files in the project directory, including:
 

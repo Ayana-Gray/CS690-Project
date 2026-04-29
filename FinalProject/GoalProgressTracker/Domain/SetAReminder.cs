@@ -39,7 +39,7 @@ using System.Collections.Generic;
                 return;
             }
             string entry = string.Join(Environment.NewLine, lines);
-            int Width = 50; 
+            int Width = 70; 
             string finalEntry = ConsoleUI.WrapText(entry, Width);
             string content = finalEntry + Environment.NewLine;
             this.Content = content;
